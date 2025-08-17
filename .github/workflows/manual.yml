@@ -36,7 +36,10 @@ jobs:
     steps:
       - name: Set up Node.js
         uses: actions/setup-node@v4
+
       - name: Install dependencies
         run: yarn install
+        working-directory: vite-app
       - name: Build
         run: yarn run build
+        working-directory: vite-app
