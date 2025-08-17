@@ -37,11 +37,7 @@ jobs:
 
       - name: Build
         run: yarn build
-      - name: upload artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: build-artifacts
-          path: dist
+
 
   deploy:
     runs-on: windows-latest
@@ -53,6 +49,12 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          path: dist
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
