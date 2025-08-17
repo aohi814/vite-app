@@ -41,7 +41,5 @@ jobs:
 
       - name: Install dependencies
         run: yarn install
-        working-directory: vite-app
       - name: Build
         run: yarn run build
-        working-directory: vite-app
