@@ -30,13 +30,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: Send greeting
         run: echo "Hello ${{ inputs.name }}"
-  build:
-    runs-on: ["windows-latest"]
-    needs: greet
-    steps:
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
       - name: Install dependencies
-        run: yarn install
+        run: npm install
       - name: Install dependencies
-        run: yarn run build
+        run: npm run build
